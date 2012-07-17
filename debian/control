@@ -1,0 +1,12 @@
+Source: xsession-run-login-shell
+Section: admin
+Priority: optional
+Maintainer: Tom Jones <tom@oxix.org>
+Standards-Version: 3.5.8
+Build-Depends: debhelper (>= 7.0.0)
+
+Package: xsession-run-login-shell
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Run X sessions under a login shell.
+ An Xsession.d module to launch X sessions with a login shell.

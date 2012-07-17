@@ -1,0 +1,5 @@
+xsession-run-login-shell (0.1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Tom Jones <tom@oxix.org>  Tue, 17 Jul 2012 23:47:54 +0100
