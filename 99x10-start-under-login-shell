@@ -1,0 +1,28 @@
+# We get sourced by Xsession, which is interpreted by sh.
+
+# The purpose of this module is to cause the X session to be run
+# as a child process of the user's login shell.  This allows, for
+# example, bash users to set environment variables in ~/.bash_profile,
+# and have them available to processes in their session.
+
+# This file's name puts it before "99x11-common_start".
+
+# If there's a better way of having your X session in Debian run
+# under a login shell, please let us know.
+
+# <http://wiki.debian.org/DotFiles> has a good description of the
+# problem that is being solved here.  Some more discussion is at
+# <http://lists.debian.org/debian-user/2005/06/msg03761.html>.
+
+# If we were being run under bash, we could support a wider range of
+# shells by running "exec -l $SHELL ..." (as Xsession does on Fedora)
+# to prepend a "-" to argv[0] in the exec'd process ala login(1).  This
+# has very wide support among shells to mean run as a login shell.
+# But we're being run under sh, so we go for giving the "-l" option to
+# the shell.  This appears to reasonably widely supported by shells.
+# Another option would be to exec bash -c 'exec -l ...', which we
+# could switch to if the approach below turns out to be problematic.
+# But then we'd be introducing a dependency on bash.
+
+echo about to attempt to exec $SHELL -l -c \"$STARTUP\" >&2
+exec $SHELL -l -c "$STARTUP"
