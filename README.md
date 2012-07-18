@@ -14,7 +14,7 @@ problem that is being solved here.  Some more discussion is at
 
 # Comparison with other OSs
 
-[[!table data="""
-OS | X session run under login shell
-Fedora | Yes, see `exec -l ...` in `/etc/gdm/Xsession`
-"""]]
+## Fedora
+
+X sessions are run under a login shell, see 
+`exec -l ...` in `/etc/gdm/Xsession` (checked on Fedora 14).
