@@ -14,15 +14,7 @@
 # problem that is being solved here.  Some more discussion is at
 # <http://lists.debian.org/debian-user/2005/06/msg03761.html>.
 
-# If we were being run under bash, we could support a wider range of
-# shells by running "exec -l $SHELL ..." (as Xsession does on Fedora)
-# to prepend a "-" to argv[0] in the exec'd process ala login(1).  This
-# has very wide support among shells to mean run as a login shell.
-# But we're being run under sh, so we go for giving the "-l" option to
-# the shell.  This appears to reasonably widely supported by shells.
-# Another option would be to exec bash -c 'exec -l ...', which we
-# could switch to if the approach below turns out to be problematic.
-# But then we'd be introducing a dependency on bash.
+# See README for more discussion of this implementation.
 
 echo about to attempt to exec $SHELL -l -c \"$STARTUP\" >&2
 exec $SHELL -l -c "$STARTUP"
